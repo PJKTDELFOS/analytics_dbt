@@ -1,0 +1,11 @@
+
+target/
+dbt_packages/
+logs/
+.env
+licitacoes.duckdb
+.dbt_duckdb/
+__pycache__/
+*.pyc
+licitacoes_dbt/target/
+licitacoes_dbt/dbt_packages/

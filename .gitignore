@@ -1,0 +1,4 @@
+.dbt_duckdb
+.env
+keys
+.idea

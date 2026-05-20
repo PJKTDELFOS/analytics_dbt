@@ -1,0 +1,65 @@
+version: 2
+
+models:
+  - name: st_licitacoes
+    description: >
+      Camada de staging das licitações do PNCP. Limpeza 1:1 da tabela bruta
+      raw_licitacoes — renomeação, cast de tipos, decodificação de enums e
+      colunas derivadas de data. Sem regras de negócio.
+    columns:
+      - name: licitacao_id
+        description: "Chave primária — ID interno do registro"
+        tests:
+          - not_null
+          - unique
+
+      - name: numero_controle_pncp
+        description: "Número de controle único no PNCP"
+        tests:
+          - not_null
+
+      - name: uf
+        description: "Sigla do estado (UF) em maiúsculas"
+        tests:
+          - not_null
+
+      - name: orgao_cnpj
+        description: "CNPJ do órgão contratante"
+        tests:
+          - not_null
+
+      - name: modalidade_nome
+        description: "Nome da modalidade de licitação"
+        tests:
+          - not_null
+
+      - name: valor_total_estimado
+        description: "Valor total estimado — 0.0 quando não informado"
+        tests:
+          - not_null
+
+      - name: data_publicacao_pncp
+        description: "Data de publicação no PNCP"
+
+      - name: data_encerramento
+        description: "Data de encerramento da proposta"
+
+      - name: orgao_esfera
+        description: "Esfera do órgão decodificada"
+        tests:
+          - accepted_values:
+              values:
+                - 'Federal'
+                - 'Estadual'
+                - 'Municipal'
+                - 'Não informado'
+
+      - name: orgao_poder
+        description: "Poder do órgão decodificado"
+        tests:
+          - accepted_values:
+              values:
+                - 'Executivo'
+                - 'Legislativo'
+                - 'Judiciário'
+                - 'Não informado'
