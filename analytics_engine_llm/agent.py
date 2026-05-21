@@ -25,7 +25,7 @@ class PublicProcurementAIAgente:  # Mantido o nome igual ao seu appstr.py
 
         # Corrigido para buscar do os.getenv e o nome correto do modelo
         self.llm = ChatGoogleGenerativeAI(
-            model="gemini-3.5-flash",
+            model="gemini-2.0-flash",
             google_api_key=os.getenv("GEMINI_API_KEY"),
             temperature=0.0
         )
