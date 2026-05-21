@@ -303,7 +303,7 @@ dbt test --select staging
 
 **1. Clone and install dependencies:**
 ```bash
-git clone https://github.com/PJKTDELFOS/dbt-licitacoes
+git clone https://github.com/PJKTDELFOS/analytics_dbt
 cd dbt-licitacoes
 pip install -r requirements.txt
 ```
